@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Global Pilgrim Bank — Payments &amp; Settlement Platform</title>
+<meta name="description" content="GPB commercial banking and payment platform: instant transfers, NIP settlement, cards, USSD, multi-currency FX, crypto wallet and live transaction terminal." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2300e5a0'/><text x='50' y='68' font-size='52' font-family='monospace' font-weight='bold' text-anchor='middle' fill='%2304121a'>G</text></svg>" />
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+
+<!-- ==================== AUTH ==================== -->
+<div class="auth" id="authScreen">
+  <div class="auth-card">
+    <div class="brand">
+      <div class="brand-mark">GPB</div>
+      <div class="brand-txt">
+        <strong>Global Pilgrim Bank</strong>
+        <span>Commercial · MFB 920</span>
+      </div>
+    </div>
+    <h1>Secure sign in</h1>
+    <p class="sub">Access your commercial account, live settlement terminal and back-office controls.</p>
+
+    <div class="field">
+      <label for="loginUser">Account / Email</label>
+      <input class="input" id="loginUser" type="text" value="olawale.adeshina@gpb.com" autocomplete="username" />
+    </div>
+    <div class="field">
+      <label for="loginPass">Password</label>
+      <input class="input" id="loginPass" type="password" placeholder="••••••••" autocomplete="current-password" />
+    </div>
+    <div class="auth-err" id="authErr"></div>
+    <button class="btn btn-primary btn-block" id="loginBtn">Sign in securely</button>
+
+    <div class="auth-foot">
+      Demo credentials — password: <code>GPB2024</code><br>
+      Admin back-office PIN: <code>admin123</code><br>
+      <span style="color:#5f6f8d">Secured with AES-256-GCM · TLS 1.3 · session token issued per login</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== APP ==================== -->
+<div class="app hidden" id="appShell">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="side-brand">
+      <div class="brand-mark">GPB</div>
+      <div>
+        <strong>Global Pilgrim</strong>
+        <span>Bank · 920 MFB</span>
+      </div>
+    </div>
+
+    <div class="nav-label">Banking</div>
+    <button class="nav-item active" data-view="dashboard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+      Dashboard
+    </button>
+    <button class="nav-item" data-view="transfer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15M14 7l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 6v12" stroke-linecap="round"/></svg>
+      Send money
+    </button>
+    <button class="nav-item" data-view="transactions">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg>
+      Transactions
+    </button>
+    <button class="nav-item" data-view="terminal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M6.5 9l3 3-3 3M12 15h5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Live terminal <span class="pill">LIVE</span>
+    </button>
+
+    <div class="nav-label">Channels</div>
+    <button class="nav-item" data-view="cards">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/></svg>
+      Cards &amp; ATM
+    </button>
+    <button class="nav-item" data-view="ussd">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 18h4" stroke-linecap="round"/></svg>
+      USSD &amp; SMS
+    </button>
+    <button class="nav-item" data-view="crypto">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.5 8h4a2.5 2.5 0 010 5h-4V8zm0 5h4.5a2.5 2.5 0 010 5H9.5v-5z" stroke-linejoin="round"/></svg>
+      Crypto &amp; wallets
+    </button>
+
+    <div class="nav-label">Operations</div>
+    <button class="nav-item" data-view="admin">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7.5 3v6c0 4.6-3.2 8-7.5 9-4.3-1-7.5-4.4-7.5-9V6L12 3z" stroke-linejoin="round"/><path d="M9.5 12l1.8 1.8L15 10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back-office
+    </button>
+    <button class="nav-item" data-view="api">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      API &amp; Monnify
+    </button>
+
+    <div class="side-foot">
+      <div class="user-chip">
+        <div class="avatar">OA</div>
+        <div style="min-width:0">
+          <div class="u-name">Olawale A. Adeshina</div>
+          <div class="u-sub">3855158987</div>
+        </div>
+      </div>
+      <button class="logout" id="logoutBtn">Sign out</button>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main">
+    <header class="topbar">
+      <div>
+        <h2 id="pageTitle">Dashboard</h2>
+        <div class="crumb" id="pageCrumb">GPB / overview</div>
+      </div>
+      <div class="spacer"></div>
+      <div class="status-dot"><i></i> NIP ONLINE</div>
+      <button class="icon-btn" id="alertBtn" title="Notifications">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 10-12 0c0 7-3 8-3 8h18s-3-1-3-8" stroke-linejoin="round"/><path d="M13.7 21a2 2 0 01-3.4 0" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icon-btn" id="clockBtn" title="System time">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+
+    <div class="views" id="views">
+
+      <!-- ============ DASHBOARD ============ -->
+      <section class="view active" id="view-dashboard">
+        <div class="grid g-dash">
+          <div>
+            <div class="acct-card">
+              <div class="acct-top">
+                <div>
+                  <div class="acct-bank">Global Pilgrim Bank · MFB 920</div>
+                  <div style="font-size:11px;color:rgba(233,239,252,.5);font-family:var(--mono);margin-top:5px">COMMERCIAL CURRENT · NGN</div>
+                </div>
+                <div class="acct-tier">TIER 3 · VERIFIED</div>
+              </div>
+              <div class="acct-bal-label">Available balance</div>
+              <div class="acct-bal"><small>₦</small><span id="mainBalance">12,450,800.55</span></div>
+              <div class="acct-meta">
+                <div>
+                  <div class="k">Account number</div>
+                  <div class="v copy" id="acctNo" title="Click to copy">3855158987</div>
+                </div>
+                <div>
+                  <div class="k">Account name</div>
+                  <div class="v" style="font-size:11.5px">OLAWALE ABDUL-GANIYU ADESHINA</div>
+                </div>
+                <div>
+                  <div class="k">SWIFT / BIC</div>
+                  <div class="v">GPBINGLA</div>
+                </div>
+              </div>
+              <div class="acct-actions">
+                <button class="btn btn-primary btn-sm" data-go="transfer">Send money</button>
+                <button class="btn btn-ghost btn-sm" id="copyAcctBtn">Copy account</button>
+                <button class="btn btn-ghost btn-sm" data-go="terminal">Open terminal</button>
+              </div>
+            </div>
+
+            <div class="grid g-4 mt">
+              <div class="stat">
+                <div class="lbl">Today inflow</div>
+                <div class="val up" id="statIn">₦0.00</div>
+                <div class="delta"><b>+18.4%</b> vs yesterday</div>
+              </div>
+              <div class="stat">
+                <div class="lbl">Today outflow</div>
+                <div class="val down" id="statOut">₦0.00</div>
+                <div class="delta">settled via NIP</div>
+              </div>
+              <div class="stat">
+                <div class="lbl">Success rate</div>
+                <div class="val" id="statRate">99.4%</div>
+                <div class="delta">1,284 transactions</div>
+              </div>
+              <div class="stat">
+                <div class="lbl">Avg. settlement</div>
+                <div class="val">1.8s</div>
+                <div class="delta">NIP · instant</div>
+              </div>
+            </div>
+
+            <div class="card mt">
+              <div class="card-head">
+                <div class="card-title"><span class="dot"></span>Recent transactions</div>
+                <button class="btn btn-ghost btn-sm" data-go="transactions">View all</button>
+              </div>
+              <div class="tbl-wrap">
+                <table>
+                  <thead><tr><th>Serial</th><th>Details</th><th>Channel</th><th>Amount</th><th>Status</th><th>Time</th></tr></thead>
+                  <tbody id="recentTxBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="card">
+              <div class="card-head">
+                <div class="card-title"><span class="dot" style="background:var(--cyan)"></span>Multi-currency engine</div>
+                <span class="card-sub">LIVE FX</span>
+              </div>
+              <div id="fxList"></div>
+            </div>
+
+            <div class="card mt">
+              <div class="card-head">
+                <div class="card-title"><span class="dot" style="background:var(--violet)"></span>Wallet engine</div>
+                <span class="card-sub">4 ASSETS</span>
+              </div>
+              <div id="walletList"></div>
+            </div>
+
+            <div class="card mt">
+              <div class="card-head">
+                <div class="card-title"><span class="dot" style="background:var(--amber)"></span>Network integrity</div>
+              </div>
+              <div class="kv"><span class="k">NIBSS NIP</span><span class="v" style="color:#3dffc0">CONNECTED</span></div>
+              <div class="kv"><span class="k">SWIFT gpi</span><span class="v" style="color:#3dffc0">ONLINE</span></div>
+              <div class="kv"><span class="k">ISO 8583 switch</span><span class="v" style="color:#3dffc0">READY</span></div>
+              <div class="kv"><span class="k">Encryption</span><span class="v">AES-256-GCM</span></div>
+              <div class="kv"><span class="k">Secure tunnel</span><span class="v">gpb-mesh</span></div>
+              <div class="kv"><span class="k">Compliance</span><span class="v" style="color:#3dffc0">100% T+0</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TRANSFER ============ -->
+      <section class="view" id="view-transfer">
+        <div class="section-title">Send money</div>
+        <div class="section-desc">Instant transfer across bank accounts, GPB wallets and crypto addresses. Routed over NIP with ISO 8583 messaging and real-time ledger posting.</div>
+
+        <div class="grid g-2">
+          <div class="card">
+            <div class="card-head"><div class="card-title"><span class="dot"></span>Transfer details</div><span class="card-sub">STEP 1 / 2</span></div>
+
+            <div class="field">
+              <label>Destination type</label>
+              <div class="seg" id="destSeg">
+                <button class="on" data-dest="bank">Bank account</button>
+                <button data-dest="wallet">GPB wallet</button>
+                <button data-dest="crypto">Crypto wallet</button>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="field full" id="bankField">
+                <label>Destination bank</label>
+                <select class="select" id="bankSelect">
+                  <option value="">Select bank…</option>
+                  <option>Opay Digital Services</option>
+                  <option>PalmPay</option>
+                  <option>Moniepoint MFB</option>
+                  <option>Kuda MFB</option>
+                  <option>First City Monument Bank (FCMB)</option>
+                  <option>Zenith Bank</option>
+                  <option>Wema Bank</option>
+                  <option>Sterling Bank</option>
+                  <option>Guaranty Trust Bank (GTB)</option>
+                  <option>Access Bank</option>
+                  <option>United Bank for Africa (UBA)</option>
+                  <option>Global Pilgrim Bank (GPB)</option>
+                </select>
+              </div>
+
+              <div class="field full hidden" id="cryptoField">
+                <label>Crypto network</label>
+                <select class="select" id="cryptoNet">
+                  <option value="TRC20">USDT · TRC-20</option>
+                  <option value="ERC20">USDT · ERC-20</option>
+                  <option value="BTC">Bitcoin · BTC</option>
+                  <option value="HTX">Hotcoin · HTX</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label id="acctLabel">Account number</label>
+                <input class="input mono" id="destAcct" maxlength="34" placeholder="10-digit account number" inputmode="numeric" />
+              </div>
+              <div class="field">
+                <label>Account name</label>
+                <input class="input" id="destName" placeholder="Auto-resolved" readonly />
+              </div>
+
+              <div class="field">
+                <label>Amount</label>
+                <input class="input mono" id="sendAmount" placeholder="0.00" inputmode="decimal" />
+              </div>
+              <div class="field">
+                <label>Currency</label>
+                <select class="select" id="sendCcy">
+                  <option>NGN</option><option>USD</option><option>GBP</option><option>EUR</option>
+                  <option>GHS</option><option>ZAR</option><option>CAD</option><option>AUD</option>
+                  <option>CNY</option><option>RUB</option><option>UAH</option><option>XAF</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label>Narration</label>
+                <input class="input" id="sendNarration" placeholder="e.g. Invoice settlement" maxlength="60" />
+              </div>
+            </div>
+
+            <div class="flex-between mt">
+              <div class="mini">Fee <span id="feeOut" style="color:#d7e6fb">₦0.00</span> · VAT <span id="vatOut" style="color:#d7e6fb">₦0.00</span></div>
+              <div class="mini">Total <b id="totalOut" style="color:var(--emerald)">₦0.00</b></div>
+            </div>
+
+            <button class="btn btn-primary btn-block mt" id="sendBtn">Continue to authorise</button>
+            <div class="hint">Transactions are idempotent — a retried request will never debit twice. A unique serial number and transaction ID are issued at authorisation.</div>
+          </div>
+
+          <div>
+            <div class="card">
+              <div class="card-head"><div class="card-title"><span class="dot" style="background:var(--cyan)"></span>Routing preview</div></div>
+              <div class="kv"><span class="k">Originating bank</span><span class="v">GPB MFB · 920</span></div>
+              <div class="kv"><span class="k">Routing protocol</span><span class="v">ISO 8583 / NIP</span></div>
+              <div class="kv"><span class="k">Settlement</span><span class="v">T+0 instant</span></div>
+              <div class="kv"><span class="k">Destination</span><span class="v" id="routeDest">—</span></div>
+              <div class="kv"><span class="k">Resolved name</span><span class="v" id="routeName">—</span></div>
+              <div class="kv"><span class="k">Fee model</span><span class="v">₦10 + 0.5% (cap ₦50)</span></div>
+              <div class="kv"><span class="k">Alerts</span><span class="v">SMS + Email</span></div>
+              <div class="kv"><span class="k">Compliance</span><span class="v" style="color:#3dffc0">AML PASS</span></div>
+            </div>
+
+            <div class="card mt">
+              <div class="card-head"><div class="card-title"><span class="dot" style="background:var(--amber)"></span>Recent recipients</div></div>
+              <div id="recipients"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TRANSACTIONS ============ -->
+      <section class="view" id="view-transactions">
+        <div class="flex-between" style="margin-bottom:16px">
+          <div>
+            <div class="section-title">Transaction ledger</div>
+            <div class="section-desc" style="margin:0">Immutable double-entry records with serial number, transaction ID and UTC timestamp.</div>
+          </div>
+          <button class="btn btn-ghost btn-sm" id="exportCsvBtn">Export CSV</button>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title"><span class="dot"></span>All transactions</div>
+            <input class="input" id="txSearch" placeholder="Search ID, serial, name…" style="max-width:250px;padding:8px 11px;font-size:12px" />
+          </div>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr><th>Serial</th><th>Transaction ID</th><th>Type</th><th>Counterparty</th><th>Channel</th><th>Amount</th><th>Status</th><th>Date / Time</th></tr>
+              </thead>
+              <tbody id="allTxBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TERMINAL ============ -->
+      <section class="view" id="view-terminal">
+        <div class="flex-between" style="margin-bottom:14px">
+          <div>
+            <div class="section-title">Live transaction terminal</div>
+            <div class="section-desc" style="margin:0">Real-time settlement stream across NIP, ISO 8583, SWIFT gpi, blockchain and webhook channels.</div>
+          </div>
+          <div class="flex">
+            <span class="chip ok" id="termUptime">UPTIME 00:00:00</span>
+          </div>
+        </div>
+
+        <div class="term-shell">
+          <div class="term-bar">
+            <div class="term-lights"><i></i><i></i><i></i></div>
+            <div class="term-title"><b>gpb@core</b>:~ /var/log/settlement — <span id="termSession">session #GPB-920</span></div>
+            <div class="term-badges">
+              <span class="led"><i></i>NIP</span>
+              <span class="led cyan"><i></i>ISO8583</span>
+              <span class="led violet"><i></i>SWIFT GPI</span>
+              <span class="led amber"><i></i>CHAIN</span>
+            </div>
+          </div>
+
+          <div class="term-toolbar">
+            <button class="tab on" data-filter="ALL">ALL</button>
+            <button class="tab" data-filter="NIP">NIP</button>
+            <button class="tab" data-filter="ISO">ISO 8583</button>
+            <button class="tab" data-filter="SWIFT">SWIFT</button>
+            <button class="tab" data-filter="CHAIN">CHAIN</button>
+            <button class="tab" data-filter="WEBHOOK">WEBHOOK</button>
+            <div class="spacer"></div>
+            <button class="tool on" id="pauseBtn">⏸ PAUSE</button>
+            <button class="tool" id="clearBtn">⌫ CLEAR</button>
+            <button class="tool" id="exportLogBtn">↓ EXPORT</button>
+          </div>
+
+          <div class="term-stats">
+            <div><div class="k">TPS</div><div class="v ok" id="tpsVal">0.0</div></div>
+            <div><div class="k">Latency</div><div class="v" id="latVal">0 ms</div></div>
+            <div><div class="k">Settled</div><div class="v" id="settledVal">0</div></div>
+            <div><div class="k">Volume</div><div class="v" id="volVal">₦0</div></div>
+            <div><div class="k">Failed</div><div class="v warn" id="failVal">0</div></div>
+            <div><div class="k">Nodes</div><div class="v ok">920 MFB</div></div>
+          </div>
+
+          <div class="term-body" id="termBody"></div>
+
+          <div class="term-input">
+            <span class="prompt">gpb@core:~$</span>
+            <input id="termInput" placeholder="type 'help' for commands — status · tx · rates · send · netstat · clear" autocomplete="off" spellcheck="false" />
+            <span class="caret"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CARDS & ATM ============ -->
+      <section class="view" id="view-cards">
+        <div class="section-title">Cards, ATM &amp; switch</div>
+        <div class="section-desc">Visa and Mastercard issuing, PIN management, ATM acquiring over ISO 8583.</div>
+
+        <div class="grid g-2">
+          <div class="card">
+            <div class="card-head"><div class="card-title"><span class="dot"></span>Issued cards</div><span class="card-sub">2 ACTIVE</span></div>
+            <div class="credit-card visa" style="margin-bottom:14px">
+              <div class="cc-top">
+                <div class="cc-chip"></div>
+                <div class="cc-brand">VISA</div>
+              </div>
+              <div class="cc-num">5399 •••• •••• 4821</div>
+              <div class="cc-bot">
+                <div><div style="font-size:8px;opacity:.6">CARDHOLDER</div>OLAWALE A. ADESHINA</div>
+                <div><div style="font-size:8px;opacity:.6">EXPIRES</div>09/29</div>
+              </div>
+            </div>
+            <div class="credit-card mc">
+              <div class="cc-top">
+                <div class="cc-chip"></div>
+                <div class="cc-brand" style="display:flex;gap:-6px">
+                  <span style="width:18px;height:18px;border-radius:50%;background:#eb001b;display:inline-block"></span>
+                  <span style="width:18px;height:18px;border-radius:50%;background:#f79e1b;display:inline-block;margin-left:-7px;opacity:.9"></span>
+                </div>
+              </div>
+              <div class="cc-num">5061 •••• •••• 7734</div>
+              <div class="cc-bot">
+                <div><div style="font-size:8px;opacity:.6">CARDHOLDER</div>OLAWALE A. ADESHINA</div>
+                <div><div style="font-size:8px;opacity:.6">EXPIRES</div>03/28</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="card">
+              <div class="card-head"><div class="card-title"><span class="dot" style="background:var(--cyan)"></span>ATM terminal</div><span class="card-sub">ISO 8583</span></div>
+              <div class="field">
+                <label>Select directive</label>
+                <select class="select" id="atmDirective">
+                  <option>WITHDRAWAL — Cash dispense</option>
+                  <option>BALANCE ENQUIRY</option>
+                  <option>TRANSFER — To account</option>
+                  <option>AIRTIME — Top-up</option>
+                  <option>PIN CHANGE</option>
+                </select>
+              </div>
+              <div class="form-grid">
+                <div class="field">
+                  <label>Amount</label>
+                  <input class="input mono" id="atmAmount" value="20000" inputmode="numeric" />
+                </div>
+                <div class="field">
+                  <label>Terminal ID</label>
+                  <input class="input mono" id="atmTerm" value="GPBATM000920" readonly />
+                </div>
+              </div>
+              <button class="btn btn-primary btn-block" id="atmRunBtn">Run ATM transaction</button>
+              <div class="hint">Messages are translated from ISO 8583 (MTI 0200) into an internal ledger post and a NIP settlement advice.</div>
+            </div>
+
+            <div class="card mt">
+              <div class="card-head"><div class="card-title"><span class="dot" style="background:var(--violet)"></span>Switch status</div></div>
+              <div class="kv"><span class="k">Acquirer</span><span class="v">GPB ATM SWITCH</span></div>
+              <div class="kv"><span class="k">MTI support</span><span class="v">0100 / 0110 / 0200 / 0210</span></div>
+              <div class="kv"><span class="k">PIN block</span><span class="v">ISO 9564 · HSM</span></div>
+              <div class="kv"><span class="k">Response code</span><span class="v" style="color:#3dffc0">00 — APPROVED</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ USSD ============ -->
+      <section class="view" id="view-ussd">
+        <div class="section-title">USSD &amp; alert engine</div>
+        <div class="section-desc">Offline banking over telecom shortcodes plus instant SMS and email notifications.</div>
+
+        <div class="grid g-2">
+          <div class="card">
+            <div class="card-head"><div class="card-title"><span class="dot"></span>USSD simulator</div><span class="card-sub">*920#</span></div>
+            <div style="background:#04070d;border:1px solid rgba(0,229,160,.2);border-radius:14px;padding:16px;font-family:var(--mono);font-size:12px;min-height:230px;line-height:1.9;color:#8ff5d2;white-space:pre-wrap" id="ussdScreen">GPB
+Welcome, OLAWALE
+1. Balance
+2. Transfer
+3. Airtime
+4. Mini statement
+5. Change PIN</div>
+            <div class="flex mt">
+              <input class="input mono" id="ussdInput" placeholder="Enter option" style="flex:1" />
+              <button class="btn btn-primary" id="ussdSend">Send</button>
+            </div>
+            <button class="btn btn-ghost btn-sm mt-s" id="ussdReset">Reset session</button>
+          </div>
+
+          <div>
+            <div class="card">
+              <div class="card-head"><div class="card-title"><span class="dot" style="background:var(--cyan)"></span>SMS alerts</div><span class="card-sub">SMPP</span></div>
+              <div id="smsLog" style="max-height:220px;overflow-y:auto"></div>
+            </div>
+            <div class="card mt">
+              <div class="card-head"><div class="card-title"><span class="dot" style="background:var(--violet)"></span>Email alerts</div><span class="card-sub">SMTP</span></div>
+              <div id="emailLog" style="max-height:180px;overflow-y:auto"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CRYPTO ============ -->
+      <section class="view" id="view-crypto">
+        <div class="section-title">Crypto &amp; wallet engine</div>
+        <div class="section-desc">Multi-asset custody with HD wallet address generation, blockchain broadcast and confirmation tracking.</div>
+
+        <div class="grid g-3">
+          <div class="card">
+            <div class="card-head"><div class="card-title"><span class="dot" style="background:var(--amber)"></span>Bitcoin</div><span class="card-sub">BTC</span></div>
+            <div class="val" style="font-size:24px;font-weight:700">0.08420000</div>
+            <div class="mini mt-s">≈ ₦9,412,880.00</div>
+            <div class="divider"></div>
+            <div class="mini" style="word-break:break-all;color:#7dd3fc">bc1q9x4f2m8v7kp3nz0ld6wq5hs2yr8tu3ae0c7vjm</div>
+          </div>
+          <div class="card">
+            <div class="card-head"><div class="card-title"><span class="dot" style="background:var(--cyan)"></span>Tether</div><span class="card-sub">USDT · TRC20</span></div>
+            <div class="val" style="font-size:24px;font-weight:700">5,400.00</div>
+            <div class="mini mt-s">≈ ₦8,208,000.00</div>
+            <div class="divider"></div>
+            <div class="mini" style="word-break:break-all;color:#7dd3fc">TQn9Y2khEsLJW1ChVWFMSMeRDow5KcbLSE</div>
+          </div>
+          <div class="card">
+            <div class="card-head"><div class="card-title"><span class="dot" style="background:var(--violet)"></span>Hotcoin</div><span class="card-sub">HTX</span></div>
+            <div class="val" style="font-size:24px;font-weight:700">1,200.00</div>
+            <div class="mini mt-s">≈ ₦1,140,000.00</div>
+            <div class="divider"></div>
+            <div class="mini" style="word-break:break-all;color:#7dd3fc">HTX7f3a9b2c4d8e1f6a0b5c9d3e7f2a8b4c</div>
+          </div>
+        </div>
+
+        <div class="card mt">
+          <div class="card-head"><div class="card-title"><span class="dot"></span>Blockchain confirmations</div><span class="card-sub">LIVE</span></div>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Hash</th><th>Asset</th><th>Network</th><th>Amount</th><th>Confirmations</th><th>Status</th></tr></thead>
+              <tbody id="chainBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ADMIN ============ -->
+      <section class="view" id="view-admin">
+        <div class="flex-between" style="margin-bottom:16px">
+          <div>
+            <div class="section-title">Back-office control</div>
+            <div class="section-desc" style="margin:0">Credit, debit, freeze, activate or block customer accounts. Every action is written to the audit log.</div>
+          </div>
+          <span class="chip warn">ADMIN PIN REQUIRED</span>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title"><span class="dot"></span>Customer accounts</div>
+            <input class="input" id="custSearch" placeholder="Search name / account…" style="max-width:250px;padding:8px 11px;font-size:12px" />
+          </div>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Account</th><th>Customer</th><th>Bank</th><th>Balance</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody id="custBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card mt">
+          <div class="card-head"><div class="card-title"><span class="dot" style="background:var(--amber)"></span>Audit log</div><span class="card-sub">IMMUTABLE</span></div>
+          <div id="auditLog" style="max-height:220px;overflow-y:auto;font-family:var(--mono);font-size:11.5px"></div>
+        </div>
+      </section>
+
+      <!-- ============ API ============ -->
+      <section class="view" id="view-api">
+        <div class="section-title">API &amp; integrations</div>
+        <div class="section-desc">Monnify sandbox wiring, webhooks, keys and settlement endpoints. Secret keys must live on your server — never in the browser.</div>
+
+        <div class="grid g-2">
+          <div class="card">
+            <div class="card-head"><div class="card-title"><span class="dot"></span>Monnify configuration</div><span class="card-sub">SANDBOX</span></div>
+            <div class="kv"><span class="k">Base URL</span><span class="v">https://sandbox.monnify.com</span></div>
+            <div class="kv"><span class="k">API key</span><span class="v">MK_TEST_VG04••••••</span></div>
+            <div class="kv"><span class="k">Secret key</span><span class="v" style="color:#ff8fa3">•••••••••••• (server only)</span></div>
+            <div class="kv"><span class="k">Contract code</span><span class="v">6931063816</span></div>
+            <div class="kv"><span class="k">Wallet account</span><span class="v">3855158987</span></div>
+            <div class="kv"><span class="k">Payment methods</span><span class="v">CARD · USSD · DD · TRANSFER · CASH · PHONE</span></div>
+            <div class="kv"><span class="k">Status</span><span class="v" style="color:#3dffc0">SANDBOX READY</span></div>
+            <div class="hint">This front-end runs in simulation mode. To go live, proxy these calls through your backend so the secret key is never exposed.</div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><div class="card-title"><span class="dot" style="background:var(--cyan)"></span>Endpoints</div></div>
+            <div style="font-family:var(--mono);font-size:11px;line-height:2;color:#a9bdd8">
+              <div><span style="color:#00e5a0">POST</span> /api/v1/auth/login</div>
+              <div><span style="color:#00e5a0">POST</span> /api/v1/disbursements/single</div>
+              <div><span style="color:#38bdf8">GET</span>  /api/v1/transactions/{ref}</div>
+              <div><span style="color:#38bdf8">GET</span>  /api/v1/accounts/{acct}</div>
+              <div><span style="color:#fbbf24">POST</span> /webhook/gpb/settlement</div>
+              <div><span style="color:#8b5cf6">WS</span>   wss://core.gpb/stream</div>
+            </div>
+            <div class="divider"></div>
+            <div class="card-sub" style="margin-bottom:8px">WEBHOOK PAYLOAD</div>
+            <pre style="background:#04070d;border:1px solid var(--line);border-radius:10px;padding:12px;font-family:var(--mono);font-size:10.5px;color:#8ff5d2;overflow-x:auto;line-height:1.7">{
+  "event": "transaction.successful",
+  "serial": "GPB-0001042",
+  "transactionId": "GPB-LX92K4-A7F1",
+  "amount": 25000.00,
+  "currency": "NGN",
+  "status": "SUCCESS",
+  "settledAt": "2024-06-11T09:42:18Z"
+}</pre>
+          </div>
+        </div>
+
+        <div class="card mt">
+          <div class="card-head"><div class="card-title"><span class="dot" style="background:var(--violet)"></span>Interconnect &amp; compliance identifiers</div></div>
+          <div class="grid g-3">
+            <div class="kv"><span class="k">Interconnect</span><span class="v">GPB-INTC14-5</span></div>
+            <div class="kv"><span class="k">Gateway</span><span class="v">GPB-EXTC-RELAY</span></div>
+            <div class="kv"><span class="k">Linked peer</span><span class="v">920+MFB/29COMM/195</span></div>
+            <div class="kv"><span class="k">TCC ref</span><span class="v">GPB-firs-2024-0x9924</span></div>
+            <div class="kv"><span class="k">Tax ID</span><span class="v">22203477001</span></div>
+            <div class="kv"><span class="k">Verification pin</span><span class="v">8372-9924-NODE</span></div>
+            <div class="kv"><span class="k">Secure tunnel</span><span class="v">Gpb-mesh-achibe</span></div>
+            <div class="kv"><span class="k">Encryption</span><span class="v">AES-256-GCM</span></div>
+            <div class="kv"><span class="k">Settlement</span><span class="v">NIP · 920 MFBs</span></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+<div id="modalRoot"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

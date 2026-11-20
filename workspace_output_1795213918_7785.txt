@@ -1,0 +1,2 @@
+Result: JS result: True
+Result: JS result: GPB / Available balance / ₦12,425,746.80 /  / 0. Back

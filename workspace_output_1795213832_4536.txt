@@ -1,0 +1,30 @@
+Interactive elements (22):
+  [3] button "Dashboard"
+  [4] button "Send money"
+  [5] button "Transactions"
+  [6] button "Live terminal LIVE"
+  [7] button "Cards & ATM"
+  [8] button "USSD & SMS"
+  [9] button "Crypto & wallets"
+  [10] button "Back-office"
+  [11] button "API & Monnify"
+  [12] button "Sign out"
+  [13] button
+  [14] button
+  [32] button "ALL"
+  [33] button "NIP"
+  [34] button "ISO 8583"
+  [35] button "SWIFT"
+  [36] button "CHAIN"
+  [37] button "WEBHOOK"
+  [38] button "⏸ PAUSE"
+  [39] button "⌫ CLEAR"
+  [40] button "↓ EXPORT"
+  [41] input
+
+Accessibility tree:
+Page text: GPB Global Pilgrim BANK · 920 MFB BANKING Dashboard Send money Transactions Live terminal LIVE CHANNELS Cards & ATM USSD & SMS Crypto & wallets OPERATIONS Back-office API & Monnify OA Olawale A. Adeshina 3855158987 Sign out Live terminal GPB / core / settlement NIP ONLINE Live transaction terminal Real-time settlement stream across NIP, ISO 8583, SWIFT gpi, blockchain and webhook channels. UPTIME 00:00:39 gpb@core:~ /var/log/settlement — session #GPB-920 NIP ISO8583 SWIFT GPI CHAIN ALL NIP ISO 8583 SWIFT CHAIN WEBHOOK ⏸ PAUSE ⌫ CLEAR ↓ EXPORT TPS 39.4 LATENCY 190 ms SETTLED 6 VOLUME ₦1,822,064 FAILED 1 NODES 920 MFB 22:30:11 [SYS] GPB Core Settlement Daemon v4.2.1 — starting 22:30:11 [SYS] Loading crypto engine · AES-256-GCM · HSM handshake OK 22:30:11 [AUTH] Session token issued · operator OLAWALE A. ADESHINA · scope ADMIN 22:30:11 [NIP] NIBSS NIP connected · institution 920 MFB · 29COMM/195 peers 22:30:11 [SWIFT] SWIFT gpi gateway GPBINGLA online · T+0 tracking enabled 22:30:11 [ISO] ISO 8583 switch ready · MTI 0100/0200 · PIN block ISO 9564 22:30:12 [CHAIN] Blockchain nodes synced · BTC · TRC20 · ERC20 · HTX 22:30:12 [FX] Currency engine loaded · 12 pairs · NGN base 22:30:12 [LEDGER] Double-entry ledger verified · opening balance ₦12,450,800.55 22:30:12 [SYS] ACCEPTANCE MESSAGE STATUS: READY TO RECEIVE 22:30:12 [SYS] Type help for available commands. 22:30:12 [NIP] Inward credit ₦175,104.00 · IBRAHIM MUSA · United Bank for Africa (UBA) · RC 00 SUCCESS 22:30:14 [SMS] SMPP submit_sm → +2348469129914 · delivered · GPB-DY6CPJ-8BC8 22:30:15 [NIP] Inward credit ₦478,668.00 · GRACE ETIM · Kuda MFB · RC 00 SUCCESS 22:30:17 [NIP] Inward credit ₦443,981.00 · FATIMA YUSUF · Kuda MFB · RC 00 SUCCESS 22:30:18 [ISO] 0200 WEB-GW-01 · DE2 302306•••• · DE4 000044429100 · DE39 00 22:30:20 [SWIFT] gpi GPB-TTDM2E-AEAE · USD 255,733.00 · Frankfurt → Lagos · 190ms 22:30:21 [ISO] 0200 GPBATM000920 · DE2 505069•••• · DE4 000026096200 · DE39 00 22:30:23 [NIP] Inward credit ₦410,135.00 · 
+
+Screenshot: /workspace/.screenshots/step_002.png
+Use see-image to view: /workspace/.screenshots/step_002.png
+=== END ===

@@ -1,0 +1,15 @@
+=== BROWSER STATE ===
+URL: http://localhost:8090/index.html
+Title: Global Pilgrim Bank — Payments & Settlement Platform
+=== BROWSER STATE ===
+URL: http://localhost:8090/index.html
+Title: Global Pilgrim Bank — Payments & Settlement Platform
+=== BROWSER STATE ===
+URL: http://localhost:8090/index.html
+Title: Global Pilgrim Bank — Payments & Settlement Platform
+=== BROWSER STATE ===
+URL: http://localhost:8090/index.html
+Title: Global Pilgrim Bank — Payments & Settlement Platform
+=== BROWSER STATE ===
+URL: http://localhost:8090/index.html
+Title: Global Pilgrim Bank — Payments & Settlement Platform

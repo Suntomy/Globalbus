@@ -1,0 +1,29 @@
+=== BROWSER STATE ===
+URL: http://localhost:8090/index.html
+Title: Global Pilgrim Bank — Payments & Settlement Platform
+Result: Clicked: [2]
+
+Interactive elements (16):
+  [3] button "Dashboard"
+  [4] button "Send money"
+  [5] button "Transactions"
+  [6] button "Live terminal LIVE"
+  [7] button "Cards & ATM"
+  [8] button "USSD & SMS"
+  [9] button "Crypto & wallets"
+  [10] button "Back-office"
+  [11] button "API & Monnify"
+  [12] button "Sign out"
+  [13] button
+  [14] button
+  [15] button "Send money"
+  [16] button "Copy account"
+  [17] button "Open terminal"
+  [18] button "View all"
+
+Accessibility tree:
+Page text: GPB Global Pilgrim BANK · 920 MFB BANKING Dashboard Send money Transactions Live terminal LIVE CHANNELS Cards & ATM USSD & SMS Crypto & wallets OPERATIONS Back-office API & Monnify OA Olawale A. Adeshina 3855158987 Sign out Dashboard GPB / overview NIP ONLINE GLOBAL PILGRIM BANK · MFB 920 COMMERCIAL CURRENT · NGN TIER 3 · VERIFIED AVAILABLE BALANCE ₦12,450,800.55 ACCOUNT NUMBER 3855158987 ACCOUNT NAME OLAWALE ABDUL-GANIYU ADESHINA SWIFT / BIC GPBINGLA Send money Copy account Open terminal TODAY INFLOW ₦2,162,000.00 +18.4% vs yesterday TODAY OUTFLOW ₦528,500.00 settled via NIP SUCCESS RATE 80.0% 1,284 transactions AVG. SETTLEMENT 1.8s NIP · instant Recent transactions View all SERIAL DETAILS CHANNEL AMOUNT STATUS TIME GPB-0001000 AMINA BELLO PalmPay NIP +₦250,000.00 SUCCESS 22:18:11 GPB-0001001 CHINEDU OKAFOR Opay Digital Services NIP −₦45,000.00 SUCCESS 21:44:11 GPB-0001002 TUNDE ADEYEMI Zenith Bank NIP −₦128,500.00 SUCCESS 20:58:11 GPB-0001003 GLOBAL PILGRIM LTD GPB SWIFT +₦1,850,000.00 SUCCESS 19:50:11 GPB-0001004 ATM WITHDRAWAL GPB ATM 000920 ATM −₦20,000.00 SUCCESS 19:00:11 GPB-0001005 SAMUEL OWUSU GTB NIP +₦78,000.00 PENDING 18:30:11 Multi-currency engine LIVE FX US USD US Dollar ₦1,520.44▲ 0.42% GB GBP Pound Sterling ₦1,932.10▼ 0.18% EU EUR Euro ₦1,651.80▲ 0.26% CN CNY Chinese Yuan ₦210.35▲ 0.08% CA CAD Canadian Dollar ₦1,112.60▼ 0.11% AU AUD Australian Dollar ₦1,004.20▲ 0.35% ZA ZAR South African Rand ₦82.40▼ 0.52% GH GHS Ghanaian Cedi ₦100.75▲ 0.19% RU RUB Russian Ruble ₦16.55▼ 0.33% UA UAH Ukrainian Hryvnia ₦37.20▲ 0.05% XA XAF Central African CFA ₦2.52▲ 0.02% Wallet engine 4 ASSETS NG NGN Fiat · Naira 12,450,800.55 US USD Fiat · Dollar 8,420.10 BT BTC Bitcoin 0.0842 US USDT Tether TRC20 5,400.00 Network integrity NIBSS NIP CONNECTED SWIFT gpi ONLINE ISO 8583 switch READY Encryption AES-256-GCM Secure tunnel gpb-mesh Compliance 100% T+0 Session authorised AES-256-GCM tunnel established · token issued
+
+Screenshot: /workspace/.screenshots/step_001.png
+Use see-image to view: /workspace/.screenshots/step_001.png
+=== END ===

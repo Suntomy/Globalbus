@@ -1,0 +1,6 @@
+https://sites.super.myninja.ai/21f0608b-7918-4089-beef-61da230a50a7/820355de/css/styles.css -> 200
+https://sites.super.myninja.ai/21f0608b-7918-4089-beef-61da230a50a7/css/styles.css -> 403
+https://sites.super.myninja.ai/21f0608b-7918-4089-beef-61da230a50a7/820355de/gpb/css/styles.css -> 403
+https://sites.super.myninja.ai/21f0608b-7918-4089-beef-61da230a50a7/820355de/ -> 403
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>AccessDenied</Code><Message>Access Denied</Message></Error>

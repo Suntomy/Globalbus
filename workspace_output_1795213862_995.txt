@@ -1,0 +1,23 @@
+=== BROWSER STATE ===
+URL: http://localhost:8090/index.html
+Title: Global Pilgrim Bank — Payments & Settlement Platform
+  [21] button "Crypto wallet"
+  [22] select "Select bank…
+                  Opay Digital Services"
+  [24] input
+  [25] input
+  [26] input
+  [27] select "NGNUSDGBPEUR
+                  GHSZARCADAUD"
+  [28] input
+  [29] button "Continue to authorise"
+  [78] button "×"
+  [79] input type="password"
+  [80] button "Authorise payment"
+
+Accessibility tree:
+Page text: GPB Global Pilgrim BANK · 920 MFB BANKING Dashboard Send money Transactions Live terminal LIVE CHANNELS Cards & ATM USSD & SMS Crypto & wallets OPERATIONS Back-office API & Monnify OA Olawale A. Adeshina 3855158987 Sign out Send money GPB / payments / transfer NIP ONLINE Send money Instant transfer across bank accounts, GPB wallets and crypto addresses. Routed over NIP with ISO 8583 messaging and real-time ledger posting. Transfer details STEP 1 / 2 DESTINATION TYPE Bank account GPB wallet Crypto wallet DESTINATION BANK Select bank… Opay Digital Services PalmPay Moniepoint MFB Kuda MFB First City Monument Bank (FCMB) Zenith Bank Wema Bank Sterling Bank Guaranty Trust Bank (GTB) Access Bank United Bank for Africa (UBA) Global Pilgrim Bank (GPB) ACCOUNT NUMBER ACCOUNT NAME AMOUNT CURRENCY NGN USD GBP EUR GHS ZAR CAD AUD CNY RUB UAH XAF NARRATION Fee ₦50.00 · VAT ₦3.75 Total ₦25,053.75 Continue to authorise Transactions are idempotent — a retried request will never debit twice. A unique serial number and transaction ID are issued at authorisation. Routing preview Originating bank GPB MFB · 920 Routing protocol ISO 8583 / NIP Settlement T+0 instant Destination Opay Digital Services Resolved name TUNDE ADEYEMI Fee model ₦10 + 0.5% (cap ₦50) Alerts SMS + Email Compliance AML PASS Recent recipients CH CHINEDU OKAFOR Opay Digital Services · 8034567219 SEND → AM AMINA BELLO PalmPay · 9123456780 SEND → TU TUNDE ADEYEMI Zenith Bank · 2087654321 SEND → Authorise transfer Confirm details and enter your transaction PIN. × Amount ₦25,000.00 Fee + VAT ₦53.75 Total debit ₦25,053.75 Recipient TUNDE ADEYEMI Destination Opay Digital Services · 8034567219 Channel NIP / ISO 8583 TRANSACTION PIN Authorise payment Demo PIN: 1234
+
+Screenshot: /workspace/.screenshots/step_008.png
+Use see-image to view: /workspace/.screenshots/step_008.png
+=== END ===

@@ -1,0 +1,13 @@
+Screenshot: /workspace/.screenshots/step_025.png
+Use see-image to view: /workspace/.screenshots/step_025.png
+=== END ===
+gpb
+gpb-terminal.png
+outputs
+step_000.png
+step_001.png
+step_002.png
+step_003.png
+step_004.png
+step_005.png
+step_006.png

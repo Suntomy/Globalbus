@@ -1,0 +1,31 @@
+=== BROWSER STATE ===
+URL: http://localhost:8090/index.html
+Title: Global Pilgrim Bank — Payments & Settlement Platform
+=== BROWSER STATE ===
+URL: http://localhost:8090/index.html
+Title: Global Pilgrim Bank — Payments & Settlement Platform
+  [12] button "Sign out"
+  [13] button
+  [14] button
+  [19] button "Bank account"
+  [20] button "GPB wallet"
+  [21] button "Crypto wallet"
+  [22] select "Select bank…
+                  Opay Digital Services"
+  [24] input
+  [25] input
+  [26] input
+  [27] select "NGNUSDGBPEUR
+                  GHSZARCADAUD"
+  [28] input
+  [29] button "Continue to authorise"
+  [78] button "×"
+  [79] button "Done"
+  [80] button "Copy details"
+
+Accessibility tree:
+Page text: GPB Global Pilgrim BANK · 920 MFB BANKING Dashboard Send money Transactions Live terminal LIVE CHANNELS Cards & ATM USSD & SMS Crypto & wallets OPERATIONS Back-office API & Monnify OA Olawale A. Adeshina 3855158987 Sign out Send money GPB / payments / transfer NIP ONLINE Send money Instant transfer across bank accounts, GPB wallets and crypto addresses. Routed over NIP with ISO 8583 messaging and real-time ledger posting. Transfer details STEP 1 / 2 DESTINATION TYPE Bank account GPB wallet Crypto wallet DESTINATION BANK Select bank… Opay Digital Services PalmPay Moniepoint MFB Kuda MFB First City Monument Bank (FCMB) Zenith Bank Wema Bank Sterling Bank Guaranty Trust Bank (GTB) Access Bank United Bank for Africa (UBA) Global Pilgrim Bank (GPB) ACCOUNT NUMBER ACCOUNT NAME AMOUNT CURRENCY NGN USD GBP EUR GHS ZAR CAD AUD CNY RUB UAH XAF NARRATION Fee ₦10.00 · VAT ₦0.75 Total ₦10.75 Continue to authorise Transactions are idempotent — a retried request will never debit twice. A unique serial number and transaction ID are issued at authorisation. Routing preview Originating bank GPB MFB · 920 Routing protocol ISO 8583 / NIP Settlement T+0 instant Destination — Resolved name — Fee model ₦10 + 0.5% (cap ₦50) Alerts SMS + Email Compliance AML PASS Recent recipients CH CHINEDU OKAFOR Opay Digital Services · 8034567219 SEND → AM AMINA BELLO PalmPay · 9123456780 SEND → TU TUNDE ADEYEMI Zenith Bank · 2087654321 SEND → Payment successful 20 Nov 2026, 22:31:12 · WAT × GLOBAL PILGRIM BANK MFB 920 · SWIFT GPBINGLA · TIN 22203477001 ₦25,000.00 SUCCESS Serial number GPB-0001043 Transaction ID GPB-6VI12V-B22A Date / time 20 Nov 2026, 22:31:12 Beneficiary TUNDE ADEYEMI Destination Opay Digital Services Channel NIP Fee ₦50.00 Balance after ₦12,425,746.80 Status SUCCESS · RC 00 Thank you for banking with Global Pilgrim Bank. Keep this receipt for your records · support@gpb.com Done Copy details
+
+Screenshot: /workspace/.screenshots/step_011.png
+Use see-image to view: /workspace/.screenshots/step_011.png
+=== END ===

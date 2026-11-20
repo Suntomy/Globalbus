@@ -1,0 +1,1 @@
+Result: JS result: {"lines":86,"last":["22:31:48[SWIFT]gpi GPB-E9NYXB-2AE4 · EUR 18,949.00 · Frankfurt → Lagos · 189ms","22:31:50[SMS]SMPP submit_sm → +2347274022334 · delivered · GPB-Q3T9XD-E805"]}

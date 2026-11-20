@@ -1,0 +1,22 @@
+Result: Clicked: [4]
+
+Interactive elements (22):
+  [3] button "Dashboard"
+  [4] button "Send money"
+  [5] button "Transactions"
+===
+=== BROWSER STATE ===
+URL: http://localhost:8090/index.html
+Title: Global Pilgrim Bank — Payments & Settlement Platform
+Result: Filled #destAcct with '8034567219'
+
+=== BROWSER STATE ===
+URL: http://localhost:8090/index.html
+Title: Global Pilgrim Bank — Payments & Settlement Platform
+Result: Filled #sendAmount with '25000'
+
+=== BROWSER STATE ===
+URL: http://localhost:8090/index.html
+Title: Global Pilgrim Bank — Payments & Settlement Platform
+Result: JS result: TUNDE ADEYEMI
+
